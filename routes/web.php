@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
+Route::get('/test', 'PagesController@test')->name('test');
 
 Route::get('/', 'PagesController@index')->name('root');
 

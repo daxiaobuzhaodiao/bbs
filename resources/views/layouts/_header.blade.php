@@ -17,12 +17,28 @@
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav navbar-right">
         <!-- Authentication Links -->
-        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
-        <li class="nav-item"><a class="nav-link" href="" onclick="event.preventDefault();$('#registerForm').submit()">注册</a>
-          <form action="{{ route('register') }}" id="registerForm">
-            
-          </form>
-        </li>
+        @guest
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
+        @else
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="https://iocaffcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/60/h/60" class="img-responsive img-circle" width="30px" height="30px">
+              {{ Auth::user()->name }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="">个人中心</a>
+              <a class="dropdown-item" href="">编辑资料</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" id="logout" href="#">
+                <form action="{{ route('logout') }}" method="POST">
+                  {{ csrf_field() }}
+                  <button class="btn btn-block btn-sm btn-danger" type="submit" name="button">退出</button>
+                </form>
+              </a>
+            </div>
+          </li>
+        @endguest
       </ul>
     </div>
   </div>

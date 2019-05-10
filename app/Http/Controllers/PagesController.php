@@ -10,4 +10,10 @@ class PagesController extends Controller
     {
     	return view('pages.root');
     }
+
+    function test()
+    {
+        // return captcha();        // 返回图片
+        // return captcha_img('math');       // 图片地址
+    }
 }
