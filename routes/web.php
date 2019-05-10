@@ -14,4 +14,4 @@ Auth::routes(['verify' => true]);
 Route::get('/test', 'PagesController@test')->name('test');
 
 Route::get('/', 'PagesController@index')->name('root');
-
+Route::resource('users', 'UsersController', ['except' => ['index', 'destroy']]);
