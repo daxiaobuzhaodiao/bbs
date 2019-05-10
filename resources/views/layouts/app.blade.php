@@ -19,7 +19,7 @@
         @include('layouts._header')
 
         <div class="container">
-            @yiled('content')
+            @yield('content')
         </div>
 
         @include('layouts._footer')

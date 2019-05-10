@@ -17,8 +17,12 @@
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav navbar-right">
         <!-- Authentication Links -->
-        <li class="nav-item"><a class="nav-link" href="#">登录</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">注册</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
+        <li class="nav-item"><a class="nav-link" href="" onclick="event.preventDefault();$('#registerForm').submit()">注册</a>
+          <form action="{{ route('register') }}" id="registerForm">
+            
+          </form>
+        </li>
       </ul>
     </div>
   </div>
