@@ -74,3 +74,5 @@
 [10-May-2019 09:32:46 PRC] PHP Warning:  require(/home/wwwroot/bbs/vendor/autoload.php): failed to open stream: Operation not permitted in /home/wwwroot/bbs/public/index.php on line 24
 [10-May-2019 09:32:46 PRC] PHP Fatal error:  require(): Failed opening required '/home/wwwroot/bbs/public/../vendor/autoload.php' (include_path='.:/usr/local/php/lib/php') in /home/wwwroot/bbs/public/index.php on line 24
 [10-May-2019 16:16:40 PRC] PHP Fatal error:  Cannot declare class App\Http\Middleware\EnsureEmailIsVerified, because the name is already in use in /home/wwwroot/bbs/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php on line 7
+[11-May-2019 18:23:43 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/wwwroot/bbs/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 136
+[11-May-2019 18:23:52 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/wwwroot/bbs/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 136

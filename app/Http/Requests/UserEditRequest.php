@@ -14,7 +14,7 @@ class UserEditRequest extends FormRequest
         return [
             'name' => 'required|max:20|regex:/^\w+$/|unique:users,name,' . $this->user()->id,
             'email' => 'required|email|unique:users,email,' . $this->route('user')->id,
-            'avatar' => 'image|mimes:jpeg,bmp,png,jpg,gif,dimensions:min_width=200,min_height=200',
+            'avatar' => 'image|mimes:jpeg,bmp,png,jpg,gif|dimensions:min_width=200,min_height=200',
             'introduction' => 'max:80'
         ];
     }
