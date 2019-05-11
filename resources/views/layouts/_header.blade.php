@@ -11,7 +11,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
-
+        @foreach ($categories as $category)
+            <li class="nav-item bg-dark"><a href="" class="nav-link text-white">{{ $category->name }}</a></li>
+        @endforeach
       </ul>
 
       <!-- Right Side Of Navbar -->
