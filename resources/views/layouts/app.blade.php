@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    <!-- 个别页面定制样式 -->
+    @yield('customCSS')
 </head>
 <body>
     <div id="app" class="{{ route_class() }}-page">
@@ -31,6 +34,7 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
-    
+    <!-- 个别页面定制 js -->
+    @yield('customJS')
 </body>
 </html>

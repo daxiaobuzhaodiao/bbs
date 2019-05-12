@@ -56,3 +56,30 @@
   </div>
 
 @endsection
+
+@section('customCSS')
+  <link href="{{ asset('css/simditor.css') }}" rel="stylesheet"></link>
+@endsection
+
+@section('customJS')
+  <script src="{{ asset('js/module.js') }}"></script>
+  <script src="{{ asset('js/hotkeys.js') }}"></script>
+  <script src="{{ asset('js/uploader.js') }}"></script>
+  <script src="{{ asset('js/simditor.js') }}"></script>
+
+  <script>
+    $(function() {
+      let editor = new Simditor({
+        textarea: $('#editor'),
+        upload:{
+          url: ''
+          params: null
+          fileKey: 'upload_file'
+          connectionCount: 3
+          leaveConfirm: '如果离开将断开上传'
+        }
+       
+      })
+    })
+  </script>
+@endsection
