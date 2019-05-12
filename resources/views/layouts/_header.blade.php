@@ -12,7 +12,9 @@
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
         @foreach ($categories as $category)
-            <li class="nav-item bg-dark"><a href="" class="nav-link text-white">{{ $category->name }}</a></li>
+          <li class="nav-item {{ request()->path() == 'categories/'.$category->id ? 'bg-warning' : '' }}">
+            <a href="{{ route('categories.show', $category->id) }}" class="nav-link">{{ strtoupper($category->name) }}</a>
+          </li>
         @endforeach
       </ul>
 

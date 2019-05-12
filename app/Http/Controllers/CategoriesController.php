@@ -7,9 +7,9 @@ use App\Models\Category;
 
 class CategoriesController extends Controller
 {
-    public function show() 
+    public function show(Category $category) 
     {
-        $categories = Category::all();
-        dd($categories);
+        $topics = $category->topics()->with('user', 'category')->paginate(10);
+        return view('topics.index', compact('topics'));
     }
 }

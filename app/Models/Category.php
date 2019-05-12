@@ -10,4 +10,8 @@ class Category extends Model
         'name', 'description'
     ];
 
+    public function topics()
+    {
+        return $this->hasMany('App\Models\Topic', 'category_id');
+    }
 }

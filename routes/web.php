@@ -13,5 +13,7 @@
 Auth::routes(['verify' => true]);
 Route::get('/test', 'PagesController@test')->name('test');
 
-Route::get('/', 'PagesController@index')->name('root');
 Route::resource('users', 'UsersController', ['except' => ['index', 'destroy']]);
+Route::get('/', 'TopicsController@index')->name('home');
+Route::resource('topics', 'TopicsController');
+Route::get('categories/{category}', 'CategoriesController@show')->name('categories.show');
