@@ -10,8 +10,12 @@
 
       <div class="card-header bg-transparent">
         <ul class="nav nav-pills">
-          <li class="nav-item"><a class="nav-link active" href="">最后回复</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">最新发布</a></li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::query('order') != 'recent_created_at' ? 'active' : '' }}" href="{{ Request::url() }}?order=recent_replied">最后回复</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::query('order') == 'recent_created_at' ? 'active' : '' }}" href="{{ Request::url() }}?order=recent_created_at">最新发布</a>
+          </li>
         </ul>
       </div>
 

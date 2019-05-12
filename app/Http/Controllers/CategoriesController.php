@@ -7,9 +7,10 @@ use App\Models\Category;
 
 class CategoriesController extends Controller
 {
-    public function show(Category $category) 
+    public function show(Request $request, Category $category) 
     {
-        $topics = $category->topics()->with('user', 'category')->paginate(10);
+        
+        $topics = $category->topics()->with('user', 'category')->withOrder($request->order)->paginate(10);
         return view('topics.index', compact('topics'));
     }
 }
