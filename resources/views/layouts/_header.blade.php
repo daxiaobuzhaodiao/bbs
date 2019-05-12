@@ -25,6 +25,13 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
         @else
+          <!-- 新建帖子快速入口 -->
+          <li class="nav-item">
+            <a class="nav-link mt-1 mr-3 font-weight-bold" href="{{ route('topics.create') }}">
+              <i class="fa fa-plus"></i>
+            </a>
+          </li>
+          <!-- 用户操作中心 -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="{{ Auth::user()->avatar }}" class="img-responsive img-circle" width="30px" height="30px">
@@ -36,7 +43,7 @@
               <a class="dropdown-item" href=""></a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" id="logout" href="#">
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('您确定要退出么？');">
                   {{ csrf_field() }}
                   <button class="btn btn-block btn-sm btn-danger" type="submit" name="button">退出</button>
                 </form>

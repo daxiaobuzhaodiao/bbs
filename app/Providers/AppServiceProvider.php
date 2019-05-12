@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\View;
 use Illuminate\Support\Carbon;
+use App\Observers\TopicObserver;
+use App\Models\Topic;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('zh');
 
         view()->composer('layouts.app', '\App\ViewComposers\CategoriesViewComposer');
+
+        Topic::observe(TopicObserver::class);
     }
 }
