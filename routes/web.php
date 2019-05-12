@@ -17,3 +17,4 @@ Route::resource('users', 'UsersController', ['except' => ['index', 'destroy']]);
 Route::get('/', 'TopicsController@index')->name('home');
 Route::resource('topics', 'TopicsController');
 Route::get('categories/{category}', 'CategoriesController@show')->name('categories.show');
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');

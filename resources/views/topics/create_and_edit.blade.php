@@ -71,14 +71,16 @@
     $(function() {
       let editor = new Simditor({
         textarea: $('#editor'),
-        upload:{
-          url: ''
-          params: null
-          fileKey: 'upload_file'
-          connectionCount: 3
-          leaveConfirm: '如果离开将断开上传'
-        }
-       
+        upload: {
+          url: '{{ route('topics.upload_image') }}',
+          params: {
+            _token: '{{ csrf_token() }}'
+          },
+          fileKey: 'upload_file',
+          connectionCount: 3,
+          leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+        },
+        pasteImage: true
       })
     })
   </script>
