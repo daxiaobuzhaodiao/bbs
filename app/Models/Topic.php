@@ -20,7 +20,7 @@ class Topic extends Model
                 $query->recentReplied();
                 break;
         }
-        return $query;
+        return $query->with('user', 'category');
     }
 
     public function scopeRecentCreatedAt($query)

@@ -10,6 +10,7 @@
 
     <title>@yield('title', config('app.name')) - hello</title>
 
+    <meta name="description" content="@yield('description', 'DD')"> 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 

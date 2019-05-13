@@ -46,12 +46,14 @@ class TopicsController extends Controller
         return view('topics.create_and_edit', compact('topic', 'categories'));
     }
 
-    public function update()
+    public function update(TopicAddRequest $request, Topic $topic)
     {
+        $topic->update($request->all());
 
+        return view('topics.show', compact('topic'))->with('success', '文章更新成功');
     }
 
-    // 异步上传文件
+    // 异步上传文章文件或者图片
     public function uploadImage(Request $request, ImageUploadHandler $upload)
     {
         // 初始化返回 json 数据
