@@ -28,7 +28,6 @@ class TopicsController extends Controller
      */
     public function create(Topic $topic)
     {
-        $this->authorize('isOwnerOf', $topic);
         $categories = Category::all();
         return view('topics.create_and_edit', compact('topic', 'categories'));
     }
@@ -39,14 +38,18 @@ class TopicsController extends Controller
     public function store(TopicAddRequest $request)
     {
         $topic = $request->user()->topics()->create($request->except('_token'));
-        return redirect()->route('topics.show', $topic->id);
+        return redirect()->to($topic->link())->with('success', '文章发布成功');
     }
 
     /**
      * 文章详情
      */
-    public function show(Topic $topic)
+    public function show(Request $request, Topic $topic)
     {
+        // 强制跳转 带 slug 的url  如果 skug 为空，则跳转无意义
+        if(!empty($topic->slug) && $topic->slug != $request->slug) {
+            return redirect($topic->link(), 301);
+        }
         $topic->load('user', 'category');
         return view('topics.show', compact('topic'))->with('success', '文章发布成功');
     }
@@ -68,7 +71,7 @@ class TopicsController extends Controller
     {
         $this->authorize('isOwnerOf', $topic);
         $topic->update($request->all());
-        return view('topics.show', compact('topic'))->with('success', '文章更新成功');
+        return redirect()->to($topic->link())->with('success', '更新成功');
     }
 
     /**
